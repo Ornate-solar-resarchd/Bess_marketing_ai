@@ -1,5 +1,6 @@
 {
   "buildCommand": "cd ornate-bess && npm install && npm run build",
   "outputDirectory": "ornate-bess/out",
-  "installCommand": "echo 'deps installed in build step'"
+  "installCommand": "echo 'skip'",
+  "framework": null
 }
