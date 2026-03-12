@@ -1,0 +1,378 @@
+ORNATE BESS WEBSITE - COMPLETE PROJECT STRUCTURE
+================================================
+
+Location: /sessions/fervent-keen-pasteur/mnt/outputs/ornate-bess/
+
+ROOT CONFIGURATION FILES
+========================
+├── package.json                    # Dependencies: React 19, Next.js 15, Tailwind, Framer Motion
+├── tsconfig.json                   # TypeScript configuration with path aliases
+├── next.config.ts                  # Next.js configuration
+├── tailwind.config.ts              # Tailwind CSS with custom colors & fonts
+├── postcss.config.js               # PostCSS for Tailwind
+├── .eslintrc.json                  # ESLint rules
+├── .gitignore                      # Git ignore patterns
+├── .env.example                    # Environment variables template
+├── vercel.json                     # Vercel deployment config
+└── README.md                       # Comprehensive documentation
+
+APP DIRECTORY (Next.js App Router)
+==================================
+
+app/
+├── layout.tsx                      # Root layout with:
+│                                    # - Font imports (Space Grotesk, Inter, Orbitron)
+│                                    # - Full metadata (title, description, OG, Twitter)
+│                                    # - JSON-LD schemas (Organization, Product, FAQ)
+│                                    # - Navbar & Footer wrapper
+│
+├── page.tsx                        # Homepage - assembles all sections:
+│                                    # 1. HeroSection
+│                                    # 2. StatsSection
+│                                    # 3. ProductsGrid
+│                                    # 4. FeaturesSection
+│                                    # 5. ApplicationsSection
+│                                    # 6. CertificationsSection
+│                                    # 7. WhyChooseUs
+│                                    # 8. CTABanner
+│
+├── globals.css                     # Global styles:
+│                                    # - Reset styles
+│                                    # - Utilities (.glass, .gradient-text, etc)
+│                                    # - Table styling
+│                                    # - Animations
+│
+├── sitemap.ts                      # XML Sitemap for SEO
+│
+├── products/
+│   ├── page.tsx                    # Products listing page with:
+│                                    # - Product grid (3 models)
+│                                    # - Comparison table
+│                                    # - Specifications
+│
+│   ├── model-a/
+│   │   └── page.tsx                # Model A Details:
+│                                    # - Hero section (green gradient)
+│                                    # - Key features (8 items)
+│                                    # - Full specs table
+│                                    # - Certifications
+│                                    # - CTA section
+│
+│   ├── model-b/
+│   │   └── page.tsx                # Model B Details:
+│                                    # - Hero section (blue gradient)
+│                                    # - Model variants sub-table
+│                                    # - Key features (8 items)
+│                                    # - Full specs table
+│                                    # - Certifications
+│
+│   └── model-c/
+│       └── page.tsx                # Model C Details:
+│                                    # - Hero section (purple gradient)
+│                                    # - Utility-scale models sub-table
+│                                    # - Key features (8 items)
+│                                    # - Technical specs
+│                                    # - Multi-level certifications
+│
+└── contact/
+    └── page.tsx                    # Contact Form Page:
+                                     # - React Hook Form with validation
+                                     # - Fields: Name*, Company*, Phone*, Email*,
+                                     #          Capacity*, Location*, Message
+                                     # - Formspree integration
+                                     # - Success state with animation
+                                     # - Contact info sidebar
+                                     # - Error handling
+
+COMPONENTS DIRECTORY
+====================
+
+components/
+
+├── layout/
+│   ├── Navbar.tsx                  # Navigation Bar:
+│                                    # - "use client" component
+│                                    # - Fixed sticky top (z-50)
+│                                    # - Glassmorphism on scroll
+│                                    # - Desktop: nav links + products dropdown
+│                                    # - Mobile: hamburger menu
+│                                    # - Products dropdown with Framer Motion
+│                                    # - CTA button (green gradient)
+│
+│   └── Footer.tsx                  # Footer:
+│                                    # - "use client" component
+│                                    # - Glass background (slate-900/50)
+│                                    # - 4-column grid layout
+│                                    # - Contact info, products, links
+│                                    # - Social media icons
+│                                    # - WhatsApp floating button (fixed, z-50)
+│                                    # - Copyright info
+│
+└── home/
+    ├── HeroSection.tsx             # Hero:
+                                     # - Gradient heading
+                                     # - Two-column layout
+                                     # - Trust badges
+                                     # - Floating animation battery icon
+                                     # - Stats boxes with orbitron numbers
+    
+    ├── StatsSection.tsx            # Stats:
+                                     # - 4 key metrics
+                                     # - Scroll-triggered animation
+                                     # - Glassmorphism cards
+    
+    ├── ProductsGrid.tsx            # Products:
+                                     # - 3 product cards
+                                     # - Color-coded by model
+                                     # - Specs preview
+                                     # - Hover effects
+    
+    ├── FeaturesSection.tsx         # Features:
+                                     # - 6 feature cards
+                                     # - Icons with gradient
+                                     # - Hover scale effect
+    
+    ├── ApplicationsSection.tsx      # Applications:
+                                     # - 6 use-case cards
+                                     # - Color-coded
+                                     # - Icons (Home, Building, Zap, etc)
+    
+    ├── CertificationsSection.tsx    # Certifications:
+                                     # - 6 certification badges
+                                     # - Checkmark icons
+                                     # - Hover effects
+    
+    ├── WhyChooseUs.tsx             # Why Us:
+                                     # - 6 benefit cards
+                                     # - Icons with gradients
+                                     # - Testimonial-style layout
+    
+    └── CTABanner.tsx               # CTA Banner:
+                                     # - Final conversion section
+                                     # - Glassmorphism design
+                                     # - Green/Blue background glow
+                                     # - Dual CTA buttons
+
+LIBRARY FILES
+=============
+
+lib/
+└── products.ts                     # Product Data:
+                                     # - Product interface definition
+                                     # - Array of 3 products (A, B, C)
+                                     # - Complete specs for each model
+                                     # - Features list per model
+                                     # - Certifications per model
+                                     # - getProduct() function
+                                     # - getProductByModel() function
+
+PUBLIC ASSETS
+=============
+
+public/
+└── logo.svg                        # Logo (SVG placeholder):
+                                     # - Battery icon with gradient
+                                     # - "Ornate Solar" text
+                                     # - 200x60 size (scalable)
+
+KEY FEATURES
+============
+
+NAVBAR
+------
+✓ Sticky positioning (top: 0, z-50)
+✓ Transparent initially, glassmorphism on scroll
+✓ Logo with gradient background
+✓ Desktop navigation links
+✓ Products dropdown with Framer Motion slide animation
+✓ Mobile hamburger menu with animated X icon
+✓ Staggered mobile menu animations
+✓ CTA button (green gradient)
+✓ Active link highlighting
+
+FOOTER
+------
+✓ Glassmorphic dark background
+✓ 4-column layout (Company, Products, Applications, Contact)
+✓ Logo and tagline
+✓ Contact info (phone, email, address)
+✓ Social media links (LinkedIn, YouTube)
+✓ Copyright year (dynamic)
+✓ "Made in India" message
+✓ WhatsApp floating button (fixed, bottom-right, z-50)
+✓ WhatsApp link: https://wa.me/911800202625
+
+HOMEPAGE
+--------
+✓ 8 distinct sections in order
+✓ Hero with gradient text and animations
+✓ Stats with scroll-triggered animations
+✓ Product grid with color-coded cards
+✓ Features showcase
+✓ Applications section
+✓ Certifications display
+✓ Why choose us section
+✓ Final CTA banner
+
+PRODUCT PAGES
+-------------
+✓ Model A: Small C&I (100-261 kWh)
+  - Green gradient hero
+  - 8 key features
+  - Full specifications table
+  - 4 certifications
+
+✓ Model B: Medium C&I (250-522 kWh)
+  - Blue gradient hero
+  - Model variants sub-table
+  - 8 key features
+  - 5 certifications
+
+✓ Model C: Utility Scale (5-6.25 MWh)
+  - Purple gradient hero
+  - Utility-scale variants
+  - 8 key features
+  - Multi-level certifications (cell, pack, rack, system)
+
+CONTACT PAGE
+------------
+✓ React Hook Form with validation
+✓ 7 form fields (6 required)
+✓ Capacity dropdown with 5 options
+✓ Phone validation (10+ digits)
+✓ Email validation (RFC5322)
+✓ Formspree integration ready
+✓ Success state with checkmark animation
+✓ Error handling with messages
+✓ Loading state with spinner
+✓ Contact info sidebar (sticky)
+✓ Trust statements
+
+SEO OPTIMIZATION
+----------------
+✓ Full metadata on all pages
+✓ JSON-LD schemas:
+  - Organization schema
+  - Product schemas (3 models)
+  - FAQ schema (5 questions)
+✓ XML Sitemap (auto-generated)
+✓ Open Graph tags
+✓ Twitter Card tags
+✓ Canonical URLs
+✓ Robots configuration
+✓ Alternate URLs
+
+DESIGN SYSTEM
+=============
+
+COLORS
+------
+Dark Background:     #020817
+Primary Green:       #22c55e
+Primary Blue:        #3b82f6
+Glass Background:    rgba(15, 23, 42, 0.8)
+Border Colors:       Various slate shades with opacity
+
+TYPOGRAPHY
+----------
+Headings:    Space Grotesk (400-700 weights)
+Body Text:   Inter (400-700 weights)
+Numbers:     Orbitron (400, 700, 900 weights)
+
+UTILITIES
+---------
+.glass              - Glassmorphism with backdrop blur
+.gradient-text      - Green to blue gradient text
+.green-glow         - Green glow effect on hover
+.blue-glow          - Blue glow effect on hover
+.fade-in            - Fade in animation
+.form-floating      - Animated floating labels
+
+ANIMATIONS
+----------
+✓ Framer Motion animations:
+  - Scroll-triggered animations
+  - Staggered children (0.1-0.2s delay)
+  - Hover scale and color transitions
+  - Dropdown menu animations
+  - Form success state animation
+  - Mobile menu slide-in/out
+
+✓ CSS animations:
+  - Float animation (battery icon)
+  - Glow animation (buttons)
+  - Pulse animation (floating button)
+
+RESPONSIVE BREAKPOINTS
+---------
+Mobile:       Default (single column)
+Tablet:       md (768px) - 2 columns
+Desktop:      lg (1024px) - 3+ columns
+
+PERFORMANCE OPTIMIZATIONS
+========================
+✓ Image format support (AVIF, WebP)
+✓ Code splitting (per-route)
+✓ CSS purging (Tailwind)
+✓ Font optimization (next/font)
+✓ Dynamic imports where applicable
+✓ Lazy loading ready
+
+DEPLOYMENT READY
+================
+✓ Vercel optimized configuration
+✓ Environment variable support
+✓ Build and start scripts
+✓ ESLint configuration
+✓ TypeScript strict mode
+✓ Production build optimizations
+
+TECHNOLOGY STACK
+================
+React:               19.0.0
+Next.js:             15.0.0
+TypeScript:          5.3+
+Tailwind CSS:        3.4.0
+Framer Motion:       11.0.0
+React Hook Form:     7.51.0
+Lucide React:        0.344.0
+PostCSS:             8.4.0
+Autoprefixer:        10.4.0
+
+CUSTOMIZATION POINTS
+====================
+1. Colors - tailwind.config.ts
+2. Company Info - components/layout/Footer.tsx
+3. Product Data - lib/products.ts
+4. Logo - public/logo.svg
+5. Phone Number - Components (multiple locations)
+6. Email Address - Footer, Contact page
+7. WhatsApp Link - Footer.tsx
+8. Formspree ID - .env.local
+9. Social Links - Footer.tsx
+10. Fonts - app/layout.tsx
+
+BROWSER COMPATIBILITY
+====================
+✓ Chrome/Edge (Latest 2 versions)
+✓ Firefox (Latest 2 versions)
+✓ Safari (Latest 2 versions)
+✓ Mobile Safari (iOS 12+)
+✓ Chrome Android
+
+GET STARTED
+===========
+1. npm install
+2. npm run dev
+3. Open http://localhost:3000
+4. Configure .env.local
+5. Customize branding
+6. npm run build
+7. Deploy to Vercel
+
+DOCUMENTATION
+==============
+- README.md           - Full project documentation
+- Inline comments     - Code explanations
+- Component structure - Clear organization
+
