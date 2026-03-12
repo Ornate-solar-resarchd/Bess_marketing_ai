@@ -1,0 +1,11 @@
+{
+  "name": "bess-marketing-ai",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "vercel-build": "cd ornate-bess && npm install && npm run build"
+  },
+  "dependencies": {
+    "next": "^15.0.0"
+  }
+}
